@@ -4,7 +4,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import {CreateProductDto} from "./dto/create-product.dto";
 import {FindOneOptions} from "typeorm/find-options/FindOneOptions";
-import {ObjectId} from "typeorm/driver/mongodb/typings";
 
 @Injectable()
 export class ProductsService {

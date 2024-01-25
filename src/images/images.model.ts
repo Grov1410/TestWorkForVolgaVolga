@@ -22,8 +22,3 @@ export class Image {
     product: Product;
 }
 
-// const prodCard = await dataSource
-//     .getRepository(Product)
-//     .createQueryBuilder("product")
-//     .leftJoinAndSelect("product.image", "image")
-//     .getMany()

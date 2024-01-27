@@ -48,6 +48,7 @@ describe('ProductService', () => {
     try {
       await service.findAll(1, 2);
     } catch (e) {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(e.message).toBe('Products not found');
     }
   });

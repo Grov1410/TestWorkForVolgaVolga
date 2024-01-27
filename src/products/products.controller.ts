@@ -7,8 +7,6 @@ import {
   Delete,
   Patch,
   Param,
-  HttpStatus,
-  HttpException,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import type { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
@@ -56,21 +54,13 @@ export class ProductsController {
     @Param('id') id: number,
     @Body() updateProductDto: UpdateProductDto,
   ) {
-    try {
-      return await this.productService.patchProduct(id, updateProductDto);
-    } catch (error) {
-      throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+    return await this.productService.patchProduct(id, updateProductDto);
   }
 
   @ApiOperation({ summary: 'Удаление продукта' })
   @ApiResponse({ status: 200, type: Product })
   @Delete(':id')
   async remove(@Param('id') id: number) {
-    try {
-      return await this.productService.deleteProduct(id);
-    } catch (error) {
-      throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+    return await this.productService.deleteProduct(id);
   }
 }

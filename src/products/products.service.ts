@@ -16,11 +16,10 @@ export class ProductsService {
 
   async findAll(page: number = 1, limit: number = 2): Promise<Product[]> {
     const skippedItems: number = (page - 1) * limit;
-    const allProducts: Product[] = await this.productRepository.find({
+    return await this.productRepository.find({
       skip: skippedItems,
       take: limit,
     });
-    return allProducts;
   }
 
   async findOne(id: FindOneOptions<Product>): Promise<Product | null> {

@@ -18,7 +18,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 15,
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'jest', 'import'],
@@ -67,11 +67,5 @@ module.exports = {
     },
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
   },
-  ignorePatterns: [
-    'node_modules',
-    '.babelrc',
-    'babel.config.js',
-    'metro.config.js',
-    'jest.config.js',
-  ],
+  ignorePatterns: ['node_modules', 'metro.config.js', 'jest.config.js'],
 };

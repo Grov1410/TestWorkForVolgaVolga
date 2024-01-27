@@ -15,7 +15,7 @@ import { Image } from './images/images.model';
   providers: [],
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: `.${process.env.NODE_ENV}.env`,
     }),
     ServeStaticModule.forRoot({
       rootPath: path.resolve(__dirname, 'multipart/form-data'),

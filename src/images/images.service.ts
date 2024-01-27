@@ -13,7 +13,6 @@ export class ImagesService {
   constructor(
     @InjectRepository(Image) private imageRepository: Repository<Image>,
     private fileService: FilesService,
-    // eslint-disable-next-line no-empty-function
   ) {}
 
   async upload(dto: CreateImageDto, image: unknown) {

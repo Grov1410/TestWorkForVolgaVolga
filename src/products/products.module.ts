@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+import { Image } from '../images/images.model';
+
 import { ProductsController } from './products.controller';
 import { ProductsService } from './products.service';
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {Product} from "./products.model";
-import {Image} from "../images/images.model";
+import { Product } from './products.model';
 
 @Module({
   controllers: [ProductsController],
   providers: [ProductsService],
-  imports: [
-    TypeOrmModule.forFeature([Product, Image])
-  ]
+  imports: [TypeOrmModule.forFeature([Product, Image])],
 })
+// eslint-disable-next-line import/prefer-default-export
 export class ProductsModule {}

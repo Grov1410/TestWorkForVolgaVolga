@@ -1,14 +1,17 @@
-FROM node:12.13-alpine
-
+# Этап с установкой зависимостей
+FROM node:20.10-alpine AS builder
 WORKDIR /app
-
 COPY package*.json ./
-
-RUN npm install
-
+RUN npm install --no-package-lock
 COPY . .
+RUN npm run build
 
-COPY ./dist ./dist
+# Финальный образ
+FROM node:20.10-alpine
+WORKDIR /app
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/dist ./dist
+RUN npm install --no-package-lock --only=production
+CMD ["npm", "start"]
 
-CMD ["npm", "run", "start:dev"]
 
